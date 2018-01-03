@@ -39,6 +39,7 @@
   (package-refresh-contents)
   (package-install 'use-package))
 (use-package diminish :ensure t)
+(use-package bind-key :ensure t)
 
 ;;
 ;; * UI and keys
@@ -55,8 +56,8 @@
   (tool-bar-mode -1))
 (when (fboundp 'set-scroll-bar-mode)
   (set-scroll-bar-mode nil))
-(when (fboundp 'menu-bar-mode)
-  (menu-bar-mode -1))
+;; (when (fboundp 'menu-bar-mode)
+;;   (menu-bar-mode -1))
 (let ((no-border '(internal-border-width . 0)))
   (add-to-list 'default-frame-alist no-border)
   (add-to-list 'initial-frame-alist no-border))
@@ -100,6 +101,7 @@
 (setq delete-old-versions t)
 (setq create-lockfiles nil)
 (prefer-coding-system 'utf-8)
+(setq delete-by-moving-to-trash t)
 
 ;;
 ;; * Company
@@ -121,7 +123,30 @@
 	  company-files
 	  company-dabbrev))
   :config
-  (add-hook 'after-init-hook 'global-company-mode))
+  (add-hook 'after-init-hook 'global-company-mode)
+  (defun ora-company-number ()
+    "Forward to `company-complete-number'.
+Unless the number is potentially part of the candidate.
+In that case, insert the number."
+    (interactive)
+    (let* ((k (this-command-keys))
+	   (re (concat "^" company-prefix k)))
+      (if (cl-find-if (lambda (s) (string-match re s))
+		      company-candidates)
+	  (self-insert-command 1)
+	(company-complete-number
+	 (if (equal k "0")
+	     10
+	   (string-to-number k))))))
+
+  (let ((map company-active-map))
+    (mapc (lambda (x) (define-key map (format "%d" x) 'ora-company-number))
+	  (number-sequence 0 9))
+    (define-key map " " (lambda ()
+			  (interactive)
+			  (company-abort)
+			  (self-insert-command 1)))
+    (define-key map (kbd "<return>") nil)))
 
 ;;
 ;; * Packages
@@ -135,7 +160,7 @@
 (use-package dired
   :bind ("C-x C-j" . dired-jump)
   :config
-  (setq dired-listing-switches "-laGh1v"))
+  (setq dired-listing-switches "-laGh"))
 
 (use-package diff-hl
   :ensure t
@@ -159,6 +184,8 @@
 (use-package ivy
   :ensure t
   :diminish ivy-mode
+  :bind (("C-s" . counsel-grep-or-swiper)
+	 ("C-r" . swiper))
   :init
   (ivy-mode 1))
 
@@ -198,7 +225,7 @@
 
 (use-package ace-window
   :ensure t
-  :bind ("M-p" . 'ace-window))
+  :bind ("C-x o" . 'ace-window))
 
 (use-package cargo
   :ensure t
@@ -243,6 +270,10 @@
 (use-package dockerfile-mode
   :ensure t
   :mode "Dockerfile\\'")
+
+(use-package expand-region
+  :ensure t
+  :bind ("C-=" . er/expand-region))
 
 (provide 'init)
 ;;; init.el ends here
