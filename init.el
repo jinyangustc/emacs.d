@@ -102,6 +102,8 @@
 (setq create-lockfiles nil)
 (prefer-coding-system 'utf-8)
 (setq delete-by-moving-to-trash t)
+(setq save-abbrevs nil)
+(setq-default abbrev-mode t)
 
 ;;
 ;; * Company
