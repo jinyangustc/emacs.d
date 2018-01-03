@@ -278,5 +278,11 @@ In that case, insert the number."
   :ensure t
   :bind ("C-=" . er/expand-region))
 
+(use-package yasnippet
+  :ensure t
+  :diminish yas-minor-mode
+  :config
+  (yas-reload-all)
+  (add-hook 'prog-mode-hook #'yas-minor-mode))
 (provide 'init)
 ;;; init.el ends here
