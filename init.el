@@ -94,16 +94,24 @@
 (winner-mode 1)
 (show-paren-mode 1)
 (remove-hook 'minibuffer-setup-hook 'winner-save-unconditionally)
-(global-auto-revert-mode 1)
-(setq auto-revert-verbose nil)
 (setq backup-by-copying t)
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 (setq delete-old-versions t)
 (setq create-lockfiles nil)
 (prefer-coding-system 'utf-8)
 (setq delete-by-moving-to-trash t)
-(setq save-abbrevs nil)
-(setq-default abbrev-mode t)
+
+(use-package autorevert
+  :diminish auto-revert-mode
+  :init
+  (global-auto-revert-mode 1)
+  (setq auto-revert-verbose nil))
+
+(use-package abbrev
+  :diminish abbrev-mode
+  :init
+  (setq save-abbrevs nil)
+  (setq-default abbrev-mode t))
 
 ;;
 ;; * Company
@@ -287,6 +295,7 @@ In that case, insert the number."
 
 (use-package which-key
   :ensure t
+  :diminish which-key-mode
   :config
   (which-key-mode)
   (setq which-key-idle-delay 0.5)
