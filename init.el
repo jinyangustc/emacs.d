@@ -213,7 +213,8 @@ In that case, insert the number."
 
 (use-package magit
   :ensure t
-  :commands magit-status)
+  :commands magit-status
+  :bind ("C-x g" . magit-status))
 
 (use-package avy
   :ensure t
