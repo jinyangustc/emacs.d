@@ -284,5 +284,13 @@ In that case, insert the number."
   :config
   (yas-reload-all)
   (add-hook 'prog-mode-hook #'yas-minor-mode))
+
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode)
+  (setq which-key-idle-delay 0.5)
+  (which-key-setup-side-window-bottom))
+
 (provide 'init)
 ;;; init.el ends here
