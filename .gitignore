@@ -1,3 +1,5 @@
 custom.el
 elpa-*/
+eshell/
 recentf
+tramp
