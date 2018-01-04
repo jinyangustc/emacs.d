@@ -1,0 +1,6 @@
+# key: dockerfile-header
+# name: dockerfile-header
+# --
+FROM $1:${2:latest}
+MAINTAINER ${3:Jinyang Li} <${4:mail@jinyangli.org}>
+ENV REFRESHED_AT `(format-time-string "%Y-%m-%d")`
