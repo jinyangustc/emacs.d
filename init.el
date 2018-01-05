@@ -254,9 +254,10 @@ In that case, insert the number."
   :init
   (ivy-mode 1)
   :config
-  (setq ivy-re-builders-alist
-        '((swiper . ivy--regex-plus)
-          (t . ivy--regex-fuzzy))))
+  ;; (setq ivy-re-builders-alist
+  ;;       '((swiper . ivy--regex-plus)
+  ;;         (t . ivy--regex-fuzzy)))
+  )
 
 (use-package counsel
   :ensure t
