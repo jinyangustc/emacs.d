@@ -522,5 +522,9 @@ In that case, insert the number."
   :init
   (setq css-indent-offset 2))
 
+(use-package yaml-mode
+  :ensure t
+  :mode ("\\.yml\\'" . yaml-mode))
+
 (provide 'init)
 ;;; init.el ends here
