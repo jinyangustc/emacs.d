@@ -390,7 +390,7 @@ In that case, insert the number."
   :ensure t
   :bind (("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this))
-  :init
+  :config
   (define-key mc/keymap (kbd "<return>") nil))
 
 (use-package docker
