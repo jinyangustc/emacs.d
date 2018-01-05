@@ -381,10 +381,17 @@ In that case, insert the number."
   :init
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
-(use-package iedit
+;; (use-package iedit
+;;   :ensure t
+;;   :commands iedit-mode
+;;   :bind ("C-;" . iedit-mode))
+
+(use-package multiple-cursors
   :ensure t
-  :commands iedit-mode
-  :bind ("C-;" . iedit-mode))
+  :bind (("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this))
+  :init
+  (define-key mc/keymap (kbd "<return>") nil))
 
 (use-package docker
   :ensure t)
