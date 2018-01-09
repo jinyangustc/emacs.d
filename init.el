@@ -320,6 +320,9 @@ In that case, insert the number."
   :config
   (elpy-enable))
 
+(use-package pyenv-mode
+  :ensure t)
+
 (use-package magit
   :ensure t
   :commands magit-status
