@@ -250,20 +250,26 @@ In that case, insert the number."
   :ensure t
   :diminish ivy-mode
   :bind (("C-s" . counsel-grep-or-swiper)
-	 ("C-r" . swiper))
+	 ("C-r" . swiper)
+         ("C-s" . counsel-grep-or-swiper)
+         ("C-x C-r" . counsel-recentf)
+         ("C-c k" . counsel-rg)
+         ("C-c i" . counsel-imenu)
+         ("C-c o" . ivy-occur))
   :init
   (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
   :config
   ;; (setq ivy-re-builders-alist
   ;;       '((swiper . ivy--regex-plus)
   ;;         (t . ivy--regex-fuzzy)))
   )
 
-(use-package counsel
+(use-package phi-search
   :ensure t
-  :bind ("C-s" . counsel-grep-or-swiper)
-  :bind ("C-x C-r" . counsel-recentf)
-  :bind ("C-c k" . counsel-rg))
+  :bind (("C-c s" . phi-search)
+         ("C-c r" . phi-search-backward)))
 
 (use-package counsel-projectile
   :ensure t
@@ -307,7 +313,7 @@ In that case, insert the number."
   :ensure t
   :bind (("S-RET" . crux-smart-open-line)
          ("C-k" . crux-smart-kill-line)
-	 ("C-c o" . crux-open-with)
+	 ("C-c O" . crux-open-with)
 	 ("C-c I" . crux-find-user-init-file)
          ("C-c d" . crux-duplicate-current-line-or-region)
          ("C-c M-d" . crux-duplicate-and-comment-current-line-or-region))
