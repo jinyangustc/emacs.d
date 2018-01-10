@@ -437,6 +437,8 @@ In that case, insert the number."
   :ensure t
   :config
   (key-chord-mode 1)
+  ;; save buffer
+  (key-chord-define-global "fs" 'save-buffer)
   ;; go to word
   (key-chord-define-global "jj" 'avy-goto-char-timer)
   ;; go to line
