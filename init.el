@@ -537,5 +537,11 @@ In that case, insert the number."
   :ensure t
   :mode ("\\.yml\\'" . yaml-mode))
 
+(use-package youdao-dictionary
+  :ensure t
+  :bind ("C-c y" . youdao-dictionary-search-at-point)
+  :init
+  (setq url-automatic-caching t)
+  (setq youdao-dictionary-search-history-file "~/.emacs.d/.youdao"))
 (provide 'init)
 ;;; init.el ends here
