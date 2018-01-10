@@ -543,5 +543,9 @@ In that case, insert the number."
   :init
   (setq url-automatic-caching t)
   (setq youdao-dictionary-search-history-file "~/.emacs.d/.youdao"))
+
+(use-package org-download
+  :ensure t)
+
 (provide 'init)
 ;;; init.el ends here
