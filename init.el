@@ -547,5 +547,14 @@ In that case, insert the number."
 (use-package org-download
   :ensure t)
 
+(defun join-lines (n)
+  "Join N lines."
+  (interactive "p")
+    (if (use-region-p)
+      (let ((fill-column (point-max)))
+        (fill-region (region-beginning) (region-end)))
+      (dotimes (_ (abs n))
+        (delete-indentation (natnump n)))))
+
 (provide 'init)
 ;;; init.el ends here
