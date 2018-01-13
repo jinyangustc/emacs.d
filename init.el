@@ -556,6 +556,11 @@ In that case, insert the number."
       (dotimes (_ (abs n))
         (delete-indentation (natnump n)))))
 
+(use-package wgrep
+  :ensure t
+  :bind (("C-x C-q" . wgrep-change-to-wgrep-mode)
+         ("C-c C-c" . wgrep-finish-edit)))
+
 (use-package org-plus-contrib
   :ensure t
   :mode ("\\.org\\'" . org-mode)
