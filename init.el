@@ -556,5 +556,12 @@ In that case, insert the number."
       (dotimes (_ (abs n))
         (delete-indentation (natnump n)))))
 
+(use-package org-plus-contrib
+  :ensure t
+  :mode ("\\.org\\'" . org-mode)
+  :init
+  (setq org-highlight-latex-and-related '(latex))
+  (setq org-pretty-entities t))
+
 (provide 'init)
 ;;; init.el ends here
