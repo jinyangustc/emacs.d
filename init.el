@@ -246,6 +246,13 @@ In that case, insert the number."
 			  (self-insert-command 1)))
     (define-key map (kbd "<return>") nil)))
 
+(use-package company-math
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-math-symbols-latex)
+  ;; (add-to-list 'company-backends 'company-math-symbols-unicode)
+  (setq company-math-allow-latex-symbols-in-faces t))
+
 (use-package ivy
   :ensure t
   :diminish ivy-mode
@@ -264,6 +271,7 @@ In that case, insert the number."
   ;; (setq ivy-re-builders-alist
   ;;       '((swiper . ivy--regex-plus)
   ;;         (t . ivy--regex-fuzzy)))
+  (setq ivy-format-function 'ivy-format-function-arrow)
   )
 
 (use-package phi-search
