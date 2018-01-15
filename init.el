@@ -105,6 +105,10 @@
               :slant 'normal
               :size 16.5)))
 
+(use-package gruvbox-theme
+  :ensure t
+  :init (load-theme 'gruvbox-dark-hard t))
+
 ;;
 ;; * Editing
 ;;
