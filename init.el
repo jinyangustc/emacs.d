@@ -576,5 +576,12 @@ In that case, insert the number."
   (setq org-highlight-latex-and-related '(latex))
   (setq org-pretty-entities t))
 
+(use-package smartparens
+  :ensure t
+  :diminish smartparens-mode
+  :config
+  (use-package smartparens-config)
+  (smartparens-global-mode 1))
+
 (provide 'init)
 ;;; init.el ends here
