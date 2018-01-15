@@ -593,9 +593,32 @@ In that case, insert the number."
 (use-package org-plus-contrib
   :ensure t
   :mode ("\\.org\\'" . org-mode)
+  :bind (("C-c l" . org-store-link)
+         ("C-c a" . org-agenda)
+         ("C-c c" . counsel-org-capture))
   :init
   (setq org-highlight-latex-and-related '(latex))
-  (setq org-pretty-entities t))
+  (setq org-pretty-entities t)
+  ;; basic settings
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "WAITING(w@/!)" "NEXT(n)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")))
+  (setq org-todo-keyword-faces
+        '(("TODO" . (:foreground "red" :weight bold))
+          ("WAITING" . (:foreground "blue" :weight bold))))
+  (setq org-startup-indented t)
+  (setq org-startup-folded nil)
+  (setq org-return-follows-link t)
+  (setq org-src-preserve-indentation t)
+  (setq org-src-fontify-natively t)
+  (setq org-agenda-files '("~/Onedrive - Jinyang Li/org/"))
+  (setq org-default-notes-file "~/Onedrive - Jinyang Li/org/notes.org")
+  (setq org-capture-templates
+        `(("t" "todo" entry (file "")
+           "* TODO %?\n%U\n" :clock-resume t)
+          ("n" "note" entry (file "")
+           "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
+          ("j" "journal" entry (file+datetree "~/journal.org")
+           "* %?" :empty-lines 1))))
 
 (use-package smartparens
   :ensure t
