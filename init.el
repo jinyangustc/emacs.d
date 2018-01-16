@@ -627,6 +627,39 @@ In that case, insert the number."
   (use-package smartparens-config)
   (smartparens-global-mode 1))
 
+(use-package ivy-bibtex
+  :ensure t
+  :init
+  (setq ivy-bibtex-default-action 'ivy-bibtex-insert-citation)
+  (setq bibtex-completion-cite-prompt-for-optional-arguments nil))
+
+(use-package auctex
+  :defer t
+  :ensure t
+  :init
+  (setq reftex-plug-into-AUCTex t)
+  (add-hook 'LaTex-mode-hook 'turn-on-reftex)
+  :config
+  (setq-default Tex-master nil)
+  (setq Tex-auto-save t)
+  (setq Tex-parse-self t)
+  (setq Tex-save-query nil)
+  (setq Tex-source-correlate-mode t)
+  (setq Tex-PDF-mode t))
+
+(use-package company-auctex
+  :requires company
+  :ensure t
+  :config
+  (company-auctex-init))
+
+(use-package auctex-latexmk
+  :ensure t
+  :config
+  (setq auctex-latexmk-inherit-TeX-PDF-mode t)
+  (auctex-latexmk-setup))
+
+
 ;; (use-package cnfonts
 ;;   :ensure t
 ;;   :init
