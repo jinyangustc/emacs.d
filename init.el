@@ -659,6 +659,20 @@ In that case, insert the number."
   (setq auctex-latexmk-inherit-TeX-PDF-mode t)
   (auctex-latexmk-setup))
 
+(use-package ess-site
+  :ensure ess
+  :mode (("/R/.*\\.q\\'" . R-mode)
+         ("\\.[rR]\\'" . R-mode))
+  :config
+  (setq ess-first-continued-statement-offset 2
+        ess-continued-statement-offset 0
+        ess-expression-offset 2
+        ess-nuke-trailing-whitespace-p t
+        ess-default-style 'DEFAULT))
+
+(use-package ess-R-data-view
+  :ensure t)
+
 
 ;; (use-package cnfonts
 ;;   :ensure t
