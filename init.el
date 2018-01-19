@@ -312,10 +312,12 @@ In that case, insert the number."
 ;;
 ;; * Packages
 ;;
-(use-package exec-path-from-shell
-  :ensure t
-  :config
-  (when (memq window-system '(mac ns x))
+(when (memq window-system '(mac ns x))
+  (use-package exec-path-from-shell
+    :ensure t
+    :config
+    (exec-path-from-shell-copy-env "LC_ALL")
+    (exec-path-from-shell-copy-env "LANG")
     (exec-path-from-shell-initialize)))
 
 (use-package dired
@@ -671,7 +673,8 @@ In that case, insert the number."
         ess-default-style 'DEFAULT))
 
 (use-package ess-R-data-view
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;; (use-package cnfonts
