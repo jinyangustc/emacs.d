@@ -620,7 +620,10 @@ In that case, insert the number."
           ("n" "note" entry (file "")
            "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
           ("j" "journal" entry (file+datetree "~/journal.org")
-           "* %?" :empty-lines 1))))
+           "* %?" :empty-lines 1)))
+  (add-to-list 'org-structure-template-alist
+               '("eq" "#+BEGIN_EXPORT latex\n\\begin{equation}\n?\n\\end{equation}\n#+END_EXPORT"))
+  )
 
 (use-package smartparens
   :ensure t
