@@ -35,6 +35,14 @@
 
 (package-initialize)
 
+(when (memq window-system '(mac ns x))
+  (use-package exec-path-from-shell
+    :ensure t
+    :init
+    (exec-path-from-shell-copy-env "LC_ALL")
+    (exec-path-from-shell-copy-env "LANG")
+    (exec-path-from-shell-initialize)))
+
 ;; use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -312,14 +320,6 @@ In that case, insert the number."
 ;;
 ;; * Packages
 ;;
-(when (memq window-system '(mac ns x))
-  (use-package exec-path-from-shell
-    :ensure t
-    :config
-    (exec-path-from-shell-copy-env "LC_ALL")
-    (exec-path-from-shell-copy-env "LANG")
-    (exec-path-from-shell-initialize)))
-
 (use-package dired
   :bind ("C-x C-j" . dired-jump)
   :config
