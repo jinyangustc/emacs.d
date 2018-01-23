@@ -702,7 +702,8 @@ In that case, insert the number."
 
 (use-package ess-R-data-view
   :ensure t
-  :defer t)
+  :defer t
+  :bind ("C-c v" . ess-R-dv-pprint))
 
 
 ;; (use-package cnfonts
