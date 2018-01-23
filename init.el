@@ -599,14 +599,30 @@ In that case, insert the number."
          ("C-c a" . org-agenda)
          ("C-c c" . counsel-org-capture))
   :init
-  (setq org-highlight-latex-and-related '(latex))
-  (setq org-pretty-entities t)
+  (setq org-highlight-latex-and-related '(latex script entities))
+  (setq org-pretty-entities nil)
+  (setq org-startup-with-latex-preview t)
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.0))
   ;; basic settings
   (setq org-todo-keywords
         '((sequence "TODO(t)" "WAITING(w@/!)" "NEXT(n)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")))
   (setq org-todo-keyword-faces
         '(("TODO" . (:foreground "red" :weight bold))
-          ("WAITING" . (:foreground "blue" :weight bold))))
+          ("NEXT" . (:foreground "blue" :weight bold))
+          ("DONE" . (:foreground "forest green" :weight bold))
+          ("WAITING" . (:foreground "orange" :weight bold))
+          ("HOLD" . (:foreground "magenta" :weight bold))
+          ("CANCELLED" . (:foreground "forest green" :weight bold))
+          ("MEETING" . (:foreground "forest green" :weight bold))
+          ("PHONE" . (:foreground "forest green" : :weight bold))))
+  (setq org-todo-state-tags-triggers
+        '(("CANCELLED" ("CANCELLED" . t))
+          ("WAITING" ("WAITING" . t))
+          ("HOLD" ("WAITING") ("HOLD" . t))
+          (done ("WAITING") ("HOLD"))
+          ("TODO" ("WAITING") ("CANCELLED") ("HOLD"))
+          ("NEXT" ("WAITING") ("CANCELLED") ("HOLD"))
+          ("DONE" ("WAITING") ("CANCELLED") ("HOLD"))))
   (setq org-startup-indented t)
   (setq org-startup-folded nil)
   (setq org-return-follows-link t)
