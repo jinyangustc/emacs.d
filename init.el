@@ -636,7 +636,10 @@ In that case, insert the number."
   :diminish smartparens-mode
   :config
   (use-package smartparens-config)
-  (smartparens-global-mode 1))
+  (smartparens-global-mode 1)
+  (sp-local-pair 'latex-mode "\\[" "\\]")
+  (sp-local-pair 'org-mode "\\[" "\\]")
+  )
 
 (use-package ivy-bibtex
   :ensure t
