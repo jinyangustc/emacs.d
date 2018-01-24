@@ -605,7 +605,8 @@ In that case, insert the number."
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.0))
   ;; basic settings
   (setq org-todo-keywords
-        '((sequence "TODO(t)" "WAITING(w@/!)" "NEXT(n)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")))
+        '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+          (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING")))
   (setq org-todo-keyword-faces
         '(("TODO" . (:foreground "red" :weight bold))
           ("NEXT" . (:foreground "blue" :weight bold))
