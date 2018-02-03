@@ -236,6 +236,7 @@
 
 (use-package company
   :ensure t
+  :diminish company-mode
   :init
   (setq company-idle-delay 0.4
 	company-minium-prefix-length 3
@@ -713,6 +714,7 @@ In that case, insert the number."
 (use-package flyspell
   :ensure t
   :commands (flyspell-prog-mode flyspell-mode)
+  :diminish flyspell-mode
   :init
   (add-hook 'text-mode-hook 'flyspell-mode)
   (use-package ispell
