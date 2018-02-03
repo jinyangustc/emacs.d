@@ -287,8 +287,10 @@ In that case, insert the number."
   :ensure t
   :diminish ivy-mode
   :bind (("C-s" . counsel-grep-or-swiper)
+         ("M-x" . counsel-M-x)
 	 ("C-r" . swiper)
          ("C-s" . counsel-grep-or-swiper)
+         ("C-x C-f" . counsel-find-file)
          ("C-x C-r" . counsel-recentf)
          ("C-c k" . counsel-rg)
          ("C-c i" . counsel-imenu)
