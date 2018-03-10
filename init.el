@@ -602,6 +602,8 @@ In that case, insert the number."
          ("C-c a" . org-agenda)
          ("C-c c" . counsel-org-capture))
   :init
+  ;; (setq org-latex-pdf-process (list "latexmk -f -pdf %f"))
+  (setq org-clock-persist t)
   (setq org-highlight-latex-and-related '(latex script entities))
   (setq org-pretty-entities nil)
   (setq org-startup-with-latex-preview t)
@@ -836,6 +838,23 @@ In that case, insert the number."
 (use-package hlint-refactor
   :ensure t
   :defer t)
+
+(use-package markdown-mode
+  :ensure t
+  :commands (markdonw-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+
+(use-package cider
+  :ensure t
+  :defer t)
+
+(use-package clojure-mode
+  :defer t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode)))
 
 ;; (use-package cnfonts
 ;;   :ensure t
