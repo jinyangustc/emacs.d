@@ -645,12 +645,17 @@ In that case, insert the number."
 (use-package smartparens
   :ensure t
   :diminish smartparens-mode
+  :init
+  (show-smartparens-global-mode +1)
   :config
   (use-package smartparens-config)
   (smartparens-global-mode 1)
   (sp-local-pair 'latex-mode "\\[" "\\]")
   (sp-local-pair 'org-mode "\\[" "\\]")
-  )
+  (setq sp-based-key-bingdings 'paredit)
+  (setq sp-autoskip-closing-pair 'always)
+  (setq sp-hybrid-kill-entire-symbol nil)
+  (sp-use-paredit-bindings))
 
 (use-package ivy-bibtex
   :ensure t
