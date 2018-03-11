@@ -137,7 +137,7 @@
 (setq require-final-newline t)
 
 ;; don't highlight current line
-(global-hl-line-mode -1)
+(global-hl-line-mode +1)
 
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -372,21 +372,20 @@ In that case, insert the number."
   :ensure t
   :commands (diff-hl-mode diff-hl-dired-mode)
   :config
-  (global-diff-hl-mode t)
+  (global-diff-hl-mode +1)
   (diff-hl-flydiff-mode)
-  (diff-hl-dired-mode)
-  (setq diff-hl-draw-borders nil)
+  (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 
 (use-package avy
   :ensure t
   :bind ("C-:" . 'avy-goto-char-timer))
 
-(use-package lispy
-  :ensure t
-  :diminish lispy-mode
-  :init
-  (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1))))
+;; (use-package lispy
+;;   :ensure t
+;;   :diminish lispy-mode
+;;   :init
+;;   (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1))))
 
 (use-package ace-window
   :ensure t
