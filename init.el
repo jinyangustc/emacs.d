@@ -756,6 +756,15 @@ In that case, insert the number."
   :defer t
   :init
   (add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode)))
+(use-package geiser
+  :ensure t
+  :init
+  (setq geiser-mode-start-repl-p t)
+  :config
+  (add-hook 'scheme-mode-hook (lambda ()
+                                (progn
+                                  (smartparens-strict-mode +1)
+                                  (rainbow-delimiters-mode +1)))))
 
 ;; (use-package cnfonts
 ;;   :ensure t
