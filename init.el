@@ -484,9 +484,6 @@ In that case, insert the number."
   (setq which-key-idle-delay 0.5)
   (which-key-setup-side-window-bottom))
 
-(use-package zoom-frm
-  :ensure t)
-
 (use-package emmet-mode
   :ensure t
   :init
