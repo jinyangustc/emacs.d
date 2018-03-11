@@ -590,7 +590,10 @@ In that case, insert the number."
   (setq sp-based-key-bingdings 'paredit)
   (setq sp-autoskip-closing-pair 'always)
   (setq sp-hybrid-kill-entire-symbol nil)
-  (sp-use-paredit-bindings))
+  (sp-use-paredit-bindings)
+  (add-hook 'emacs-lisp-mode-hook (lambda ()
+                                    (smartparens-strict-mode +1)
+                                    (rainbow-delimiters-mode +1))))
 
 (use-package ivy-bibtex
   :ensure t
