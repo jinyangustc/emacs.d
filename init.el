@@ -748,14 +748,35 @@ In that case, insert the number."
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
-(use-package cider
-  :ensure t
-  :defer t)
+(use-package rainbow-delimiters :ensure t)
+
+(defun prelude-lisp-coding-defaults ()
+  (smartparens-strict-mode +1)
+  (rainbow-delimiters-mode +1))
+
+(setq prelude-lisp-coding-hook 'prelude-lisp-coding-defaults)
 
 (use-package clojure-mode
   :defer t
   :init
-  (add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode)))
+  (add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
+  :config
+  (add-hook 'clojure-mode-hook (lambda ()
+                                 (progn
+                                   (smartparens-strict-mode +1)
+                                   (subword-mode +1)
+                                   (rainbow-delimiters-mode +1)))))
+
+(use-package cider
+  :ensure t
+  :config
+  (setq nrepl-log-message t)
+  (add-hook 'cider-mode-hook 'eldoc-mode)
+  (add-hook 'cider-repl-mode-hook (lambda ()
+                                    (progn
+                                      (run-hooks 'prelude-lisp-coding-hook)
+                                      (subword-mode +1)))))
+
 (use-package geiser
   :ensure t
   :init
