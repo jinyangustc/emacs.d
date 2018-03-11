@@ -57,12 +57,9 @@
 (setq use-dialog-box nil)
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message "")
-(when (fboundp 'tool-bar-mode)
-  (tool-bar-mode -1))
-(when (fboundp 'set-scroll-bar-mode)
-  (set-scroll-bar-mode nil))
-;; (when (fboundp 'menu-bar-mode)
-;;   (menu-bar-mode -1))
+(tool-bar-mode -1)
+(set-scroll-bar-mode nil)
+;; (menu-bar-mode -1)
 (let ((no-border '(internal-border-width . 0)))
   (add-to-list 'default-frame-alist no-border)
   (add-to-list 'initial-frame-alist no-border))
@@ -164,6 +161,7 @@
 
 ;; setup flycheck to show on the right side of the buffer
 (use-package flycheck
+  :defer t
   :init
   (setq flycheck-indication-mode 'right-fringe))
 
@@ -312,6 +310,7 @@ In that case, insert the number."
 
 (use-package counsel-projectile
   :ensure t
+  :defer t
   :config
   (counsel-projectile-mode))
 
@@ -329,12 +328,12 @@ In that case, insert the number."
 
 (use-package anzu
   :ensure t
+  :defer t
   :init
   (add-hook 'after-init-hook 'global-anzu-mode)
   (setq anzu-mode-lighter ""))
 
-(use-package rg
-  :ensure t)
+(use-package rg :defer t :ensure t)
 (setq-default grep-highlight-matches t
 	      grep-scroll-output t)
 (setq-default localte-command "mdfind")
@@ -356,11 +355,13 @@ In that case, insert the number."
 
 (use-package elpy
   :ensure t
+  :defer t
   :config
   (elpy-enable))
 
 (use-package pyenv-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package magit
   :ensure t
@@ -440,12 +441,14 @@ In that case, insert the number."
 
 (use-package yasnippet
   :ensure t
+  :defer t
   :diminish yas-minor-mode
   :config
   (yas-global-mode t))
 
 (use-package projectile
   :ensure t
+  :defer t
   :diminish projectile-mode
   :config
   (projectile-global-mode t)
@@ -504,25 +507,27 @@ In that case, insert the number."
 
 (use-package js2-mode
   :ensure t
+  :defer t
   :config
   (custom-set-variables
    '(js-indent-level 2)
-   '(js2-basic-offset 2)))
-
-(use-package js2-refactor
-  :ensure t
-  :init
-  (js2r-add-keybindings-with-prefix "C-c C-r")
-  (add-hook 'js2-mode-hook 'js2-refactor-mode-hook))
+   '(js2-basic-offset 2))
+  (use-package js2-refactor
+    :ensure t
+    :init
+    (js2r-add-keybindings-with-prefix "C-c C-r")
+    (add-hook 'js2-mode-hook 'js2-refactor-mode-hook)))
 
 (use-package js-doc
   :ensure t
+  :defer t
   :bind (:map js2-refactor-mode-map
               ("C-c C-r i d" . js-doc-insert-function-doc)
               ("@" . js-doc-insert-tag)))
 
 (use-package tide
   :ensure t
+  :defer t
   :init
   (defun setup-tide-mode ()
     (interactive)
@@ -538,7 +543,7 @@ In that case, insert the number."
         '(:indentSize 2 :tabSize 2)))
 
 (use-package compile
-  :init
+  :config
   (add-to-list 'compilation-error-regexp-alist 'node)
   (add-to-list 'compilation-error-regexp-alist-alist
                '(node "^[[:blank:]]*at \\(.*(\\|\\)\\(.+?\\):\\([[:digit:]]+\\):\\([[:digit:]]+\\)" 2 3 4)))
@@ -577,6 +582,7 @@ In that case, insert the number."
 
 (use-package wgrep
   :ensure t
+  :defer t
   :bind (("C-x C-q" . wgrep-change-to-wgrep-mode)
          ("C-c C-c" . wgrep-finish-edit)))
 
@@ -600,6 +606,7 @@ In that case, insert the number."
 
 (use-package ivy-bibtex
   :ensure t
+  :defer t
   :init
   (setq ivy-bibtex-default-action 'ivy-bibtex-insert-citation)
   (setq bibtex-completion-cite-prompt-for-optional-arguments nil))
@@ -621,17 +628,20 @@ In that case, insert the number."
 (use-package company-auctex
   :requires company
   :ensure t
+  :defer t
   :config
   (company-auctex-init))
 
 (use-package auctex-latexmk
   :ensure t
+  :defer t
   :config
   (setq auctex-latexmk-inherit-TeX-PDF-mode t)
   (auctex-latexmk-setup))
 
 (use-package ess-site
   :ensure ess
+  :defer t
   :mode (("/R/.*\\.q\\'" . R-mode)
          ("\\.[rR]\\'" . R-mode))
   :config
@@ -710,6 +720,7 @@ In that case, insert the number."
 
 (use-package cider
   :ensure t
+  :defer t
   :config
   (setq nrepl-log-message t)
   (add-hook 'cider-mode-hook 'eldoc-mode)
@@ -720,6 +731,7 @@ In that case, insert the number."
 
 (use-package racket-mode
   :ensure t
+  :defer t
   :mode (("\\.rkt\\'" . racket-mode))
   :config
   (add-hook 'racket-mode-hook
@@ -732,6 +744,8 @@ In that case, insert the number."
               (progn
                 (smartparens-strict-mode +1)
                 (rainbow-delimiters-mode +1)))))
+
+(use-package esup :ensure t :defer t)
 
 ;; (use-package cnfonts
 ;;   :ensure t
