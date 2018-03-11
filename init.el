@@ -38,13 +38,13 @@
 (use-package diminish :ensure t)
 (use-package bind-key :ensure t)
 
-(when (memq window-system '(mac ns x))
-  (use-package exec-path-from-shell
-    :ensure t
-    :init
-    (exec-path-from-shell-copy-env "LC_ALL")
-    (exec-path-from-shell-copy-env "LANG")
-    (exec-path-from-shell-initialize)))
+;; (when (memq window-system '(mac ns x))
+;;   (use-package exec-path-from-shell
+;;     :ensure t
+;;     :init
+;;     (exec-path-from-shell-copy-env "LC_ALL")
+;;     (exec-path-from-shell-copy-env "LANG")
+;;     (exec-path-from-shell-initialize)))
 
 ;;
 ;; * UI and keys
