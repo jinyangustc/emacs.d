@@ -137,7 +137,7 @@
 (setq require-final-newline t)
 
 ;; don't highlight current line
-(global-hl-line-mode +1)
+(global-hl-line-mode -1)
 
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -777,15 +777,19 @@ In that case, insert the number."
                                       (run-hooks 'prelude-lisp-coding-hook)
                                       (subword-mode +1)))))
 
-(use-package geiser
+(use-package racket-mode
   :ensure t
-  :init
-  (setq geiser-mode-start-repl-p t)
   :config
-  (add-hook 'scheme-mode-hook (lambda ()
-                                (progn
-                                  (smartparens-strict-mode +1)
-                                  (rainbow-delimiters-mode +1)))))
+  (add-hook 'racket-mode-hook
+            (lambda ()
+              (progn
+                (smartparens-strict-mode +1)
+                (rainbow-delimiters-mode +1))))
+  (add-hook 'racket-repl-mode-hook
+            (lambda ()
+              (progn
+                (smartparens-strict-mode +1)
+                (rainbow-delimiters-mode +1)))))
 
 ;; (use-package cnfonts
 ;;   :ensure t
