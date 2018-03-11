@@ -83,8 +83,7 @@
 ;;
 ;; * Font and themes
 ;;
-;; (use-package color-theme-sanityinc-tomorrow :ensure t)
-;; (setq-default custom-enabled-themes '(sanityinc-tomorrow-bright))
+
 (use-package default-text-scale
   :ensure t
   :init
@@ -109,9 +108,13 @@
               :slant 'normal
               :size 16.5)))
 
-(use-package gruvbox-theme
-  :ensure t
-  :init (load-theme 'gruvbox-dark-hard t))
+(setq custom-safe-themes t)
+
+;; (use-package gruvbox-theme :ensure t)
+;; (load-theme 'gruvbox-dark-medium)
+
+;; (use-package color-theme-sanityinc-tomorrow :ensure t)
+;; (load-theme 'sanityinc-tomorrow-day)
 
 ;;
 ;; * Editing
@@ -717,6 +720,7 @@ In that case, insert the number."
 
 (use-package racket-mode
   :ensure t
+  :mode (("\\.rkt\\'" . racket-mode))
   :config
   (add-hook 'racket-mode-hook
             (lambda ()
