@@ -589,6 +589,12 @@ In that case, insert the number."
 (use-package smartparens
   :ensure t
   :diminish smartparens-mode
+  :bind (:map smartparens-mode-map
+              ("C-M-a" . sp-beginning-of-sexp)
+              ("C-M-e" . sp-end-of-sexp)
+              ("C-M-k" . sp-kill-sexp)
+              ("C-k" . sp-kill-hybrid-sexp)
+              ("C-M-w" . sp-copy-sexp))
   :init
   (show-smartparens-global-mode +1)
   :config
