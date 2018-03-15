@@ -1,7 +1,7 @@
-;;; package --- Summary
+;;; init --- Jinyang's Emacs init file
 ;;; Commentary:
-;;; Code:;;; package --- Summary
-;;; Commentary:
+;;; Code:
+
 ;;; Codesystem dependent flag
 (defconst *is-a-mac* (eq system-type 'darwin))
 
@@ -163,7 +163,8 @@
 (use-package flycheck
   :defer t
   :init
-  (setq flycheck-indication-mode 'right-fringe))
+  (setq flycheck-indication-mode 'right-fringe)
+  (add-hook 'after-init-hook #'global-flycheck-mode))
 
 ;; whitespace
 (use-package whitespace
