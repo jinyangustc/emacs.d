@@ -3,7 +3,6 @@
 ;;; Code:
 
 (require 'package)
-(setq package-enable-at-startup nil)
 
 ;; Install into separate package dirs for each Emacs version, to
 ;; prevent bytecode incompatibility
@@ -16,6 +15,7 @@
 			 ("melpa" . "http://elpa.emacs-china.org/melpa/")
 			 ("gnu" . "http://elpa.emacs-china.org/gnu/")))
 
+(setq package-enable-at-startup nil)
 (package-initialize)
 
 ;; use-package
