@@ -35,6 +35,7 @@
 (require 'init-compile)
 
 (require 'init-python)
+(require 'init-clojure)
 (require 'init-rust)
 (require 'init-latex)
 (require 'init-r)

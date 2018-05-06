@@ -13,16 +13,23 @@
                                    (subword-mode +1)
                                    (rainbow-delimiters-mode +1)))))
 
-(use-package cider
-  :ensure t
+(use-package inf-clojure
   :defer t
   :config
-  (setq nrepl-log-message t)
-  (add-hook 'cider-mode-hook 'eldoc-mode)
-  (add-hook 'cider-repl-mode-hook (lambda ()
-                                    (progn
-                                      (run-hooks 'prelude-lisp-coding-hook)
-                                      (subword-mode +1)))))
+  (setq inf-clojure-prompt-read-only nil)
+  (add-hook 'inf-clojure-minor-mode-hook (lambda () (setq completion-at-point-functions nil)))
+  (add-hook 'clojure-mode-hook 'inf-clojure-minor-mode))
 
-(provide init-clojure)
+;; (use-package cider
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (setq nrepl-log-message t)
+;;   (add-hook 'cider-mode-hook 'eldoc-mode)
+;;   (add-hook 'cider-repl-mode-hook (lambda ()
+;;                                     (progn
+;;                                       (run-hooks 'prelude-lisp-coding-hook)
+;;                                       (subword-mode +1)))))
+
+(provide 'init-clojure)
 ;;; init-clojure.el ends here
