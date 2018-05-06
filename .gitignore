@@ -1,8 +1,13 @@
 custom.el
-elpa-*/
+elpa*/
 eshell/
 recentf
 tramp
 .mc-lists.el
 projectile-bookmarks.eld
 smex-items
+/.youdao
+/bookmarks
+/cnfonts
+/url/
+/SessionDesktop.el
