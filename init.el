@@ -47,5 +47,9 @@
 (use-package rainbow-delimiters :ensure t)
 (use-package esup :ensure t :defer t)
 
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
 (provide 'init)
 ;;; init.el ends here
