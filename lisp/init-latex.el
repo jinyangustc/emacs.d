@@ -6,6 +6,7 @@
   :defer t
   :ensure t
   :init
+  (require 'reftex)
   (setq reftex-plug-into-AUCTex t)
   (add-hook 'LaTex-mode-hook 'turn-on-reftex)
   (setq TeX-view-program-selection '((output-pdf "Skim")))
