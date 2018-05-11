@@ -15,14 +15,11 @@
 
 (use-package inf-clojure
   :defer t
-  :bind
-  (:map clojure-mode-map
-        ("C-x C-e" . inf-clojure-eval-last-sexp)
-        ("C-M-x" . inf-clojure-eval-defun))
+  :init
+  (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
   :config
   (setq inf-clojure-prompt-read-only nil)
-  (add-hook 'inf-clojure-minor-mode-hook (lambda () (setq completion-at-point-functions nil)))
-  (add-hook 'clojure-mode-hook 'inf-clojure-minor-mode))
+  (add-hook 'inf-clojure-minor-mode-hook (lambda () (setq completion-at-point-functions nil))))
 
 ;; (use-package cider
 ;;   :ensure t
