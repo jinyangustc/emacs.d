@@ -4,7 +4,6 @@
 
 (use-package projectile
   :ensure t
-  :defer t
   :diminish projectile-mode
   :config
   (projectile-global-mode t)
