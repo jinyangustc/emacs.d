@@ -12,7 +12,7 @@
          ("C-x C-f" . counsel-find-file)
          ("C-x C-r" . counsel-recentf)
          ("C-c k" . counsel-rg)
-         ("C-c i" . counsel-imenu)
+         ("C-c m" . counsel-imenu)
          ("C-c o" . ivy-occur))
   :init
   (ivy-mode 1)
