@@ -263,6 +263,13 @@
                                     (smartparens-strict-mode +1)
                                     (rainbow-delimiters-mode +1))))
 
+(use-package lispy
+  :ensure t
+  :diminish lispy-mode
+  :init
+  (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
+  (add-hook 'clojure-mode-hook (lambda () (lispy-mode 1))))
+
 ;; (use-package cnfonts
 ;;   :ensure t
 ;;   :init
