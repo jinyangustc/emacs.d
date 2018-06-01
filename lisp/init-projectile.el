@@ -5,11 +5,16 @@
 (use-package projectile
   :ensure t
   :diminish projectile-mode
-  :config
-  (projectile-global-mode t)
-  (custom-set-variables
-   '(projectile-switch-project-action (quote projectile-dired)))
-  (setq projectile-completion-system 'ivy))
+  :init
+  (setq projectile-mode-line nil)
+  (projectile-mode)
+  (setq projectile-completion-system 'ivy)
+  (setq projectile-indexing-method 'alien)
+  (setq projectile-enable-caching nil)
+  (setq projectile-verbose nil)
+  (setq projectile-switch-project-action
+        (lambda ()
+          (dired (projectile-project-root)))))
 
 (provide 'init-projectile)
 ;;; init-projectile.el ends here
