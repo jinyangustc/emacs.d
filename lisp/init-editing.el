@@ -266,7 +266,7 @@
 (use-package lispy
   :ensure t
   :diminish lispy-mode
-  :init
+  :config
   (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
   (add-hook 'clojure-mode-hook (lambda () (lispy-mode 1))))
 
