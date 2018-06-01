@@ -65,7 +65,6 @@ In that case, insert the number."
 
 (use-package counsel-projectile
   :ensure t
-  :defer t
   :config
   (counsel-projectile-mode))
 
