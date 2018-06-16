@@ -63,6 +63,15 @@
 
 (setq custom-safe-themes t)
 
+(use-package doom-themes
+  :ensure t)
+
+(setq doom-themes-enable-bold t
+      doom-themes-enable-italic t)
+
+(load-theme 'doom-one-light t)
+(doom-themes-visual-bell-config)
+
 ;; (use-package gruvbox-theme :ensure t)
 ;; (load-theme 'gruvbox-dark-medium)
 
