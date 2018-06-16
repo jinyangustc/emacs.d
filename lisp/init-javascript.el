@@ -4,8 +4,9 @@
 
 (use-package js2-mode
   :ensure t
-  :defer t
+  :mode (("\\.js$" . js2-mode))
   :config
+  (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
   (custom-set-variables
    '(js-indent-level 2)
    '(js2-basic-offset 2))
@@ -13,7 +14,21 @@
     :ensure t
     :init
     (js2r-add-keybindings-with-prefix "C-c C-r")
-    (add-hook 'js2-mode-hook 'js2-refactor-mode-hook)))
+    (add-hook 'js2-mode-hook #'js2-refactor-mode)))
+
+(use-package xref-js2
+  :ensure t
+  :config
+  (add-hook 'js2-mode-hook (lambda ()
+                             (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t))))
+
+(use-package rjsx-mode
+  :ensure t
+  :init
+  (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode)))
+
+(use-package json-mode
+  :ensure t)
 
 (use-package js-doc
   :ensure t
@@ -21,23 +36,6 @@
   :bind (:map js2-refactor-mode-map
               ("C-c C-r i d" . js-doc-insert-function-doc)
               ("@" . js-doc-insert-tag)))
-
-(use-package tide
-  :ensure t
-  :defer t
-  :init
-  (defun setup-tide-mode ()
-    (interactive)
-    (tide-setup)
-    (flycheck-mode 1)
-    (setq flycheck-check-syntax-automatically '(save mode-enable))
-    (eldoc-mode 1)
-    (tide-hl-identifier-mode 1)
-    (company-mode 1))
-  (add-hook 'typescript-mode-hook #'setup-tide-mode)
-  (add-hook 'before-save-hook 'tide-format-before-save)
-  (setq tide-format-options
-        '(:indentSize 2 :tabSize 2)))
 
 (provide 'init-javascript)
 ;;; init-javascript.el ends here

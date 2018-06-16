@@ -42,6 +42,7 @@
 (require 'init-yaml)
 (require 'init-markdown)
 (require 'init-racket)
+(require 'init-javascript)
 
 (use-package ibuffer :bind ("C-x C-b" . ibuffer))
 (use-package rainbow-delimiters :ensure t)
