@@ -34,6 +34,7 @@
 (require 'init-flyspell)
 (require 'init-compile)
 
+(require 'init-eshell)
 (require 'init-python)
 (require 'init-clojure)
 (require 'init-rust)
