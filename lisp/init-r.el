@@ -15,7 +15,6 @@
         ess-default-style 'DEFAULT))
 
 (use-package ess-R-data-view
-  :ensure t
   :defer t
   :bind ("C-c v" . ess-R-dv-pprint))
 

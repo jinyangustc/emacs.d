@@ -22,8 +22,11 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-(use-package diminish :ensure t)
-(use-package bind-key :ensure t)
+(setq use-package-always-ensure t)
+
+(use-package diminish)
+(use-package bind-key)
+
 
 (provide 'init-elpa)
 ;;; init-elpa.el ends here

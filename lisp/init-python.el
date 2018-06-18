@@ -3,14 +3,11 @@
 ;;; Code:
 
 (use-package elpy
-  :ensure t
   :defer t
   :config
   (elpy-enable))
 
-(use-package pyenv-mode
-  :ensure t
-  :defer t)
+(use-package pyenv-mode :defer t)
 
 (provide 'init-python)
 ;;; init-python ends here

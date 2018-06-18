@@ -7,7 +7,6 @@
 ;;
 
 (use-package company
-  :ensure t
   :diminish company-mode
   :init
   (setq company-idle-delay 0.4
@@ -57,20 +56,18 @@ In that case, insert the number."
     (define-key map (kbd "<return>") nil)))
 
 (use-package company-math
-  :ensure t
   :config
   (add-to-list 'company-backends 'company-math-symbols-latex)
   ;; (add-to-list 'company-backends 'company-math-symbols-unicode)
   (setq company-math-allow-latex-symbols-in-faces t))
 
 (use-package counsel-projectile
-  :ensure t
   :config
   (counsel-projectile-mode))
 
-(use-package flx :ensure t)
+(use-package flx)
 
-(use-package smex :ensure t)
+(use-package smex)
 
 (provide 'init-completion)
 ;;; init-completion.el ends here

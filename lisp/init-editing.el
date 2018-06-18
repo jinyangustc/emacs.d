@@ -39,7 +39,6 @@
 
 ;; undo visual tree
 (use-package undo-tree
-  :ensure t
   :diminish undo-tree-mode
   :config
   (global-undo-tree-mode 1))
@@ -92,19 +91,16 @@
 (setq large-file-warning-threshold 100000000)
 
 (use-package phi-search
-  :ensure t
   :bind (("C-c s" . phi-search)
          ("C-c r" . phi-search-backward)))
 
 (use-package anzu
-  :ensure t
   :defer t
   :init
   (add-hook 'after-init-hook 'global-anzu-mode)
   (setq anzu-mode-lighter ""))
 
 (use-package crux
-  :ensure t
   :bind (("S-RET" . crux-smart-open-line)
          ("C-k" . crux-smart-kill-line)
 	 ("C-c O" . crux-open-with)
@@ -115,39 +111,33 @@
   (global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line)
   (global-set-key [remap kill-whole-line] #'crux-kill-whole-line))
 
-(use-package rg :defer t :ensure t)
+(use-package rg :defer t)
 (setq-default grep-highlight-matches t
 	      grep-scroll-output t)
 (setq-default localte-command "mdfind")
 
 (use-package ace-window
-  :ensure t
   :bind ("C-x o" . 'ace-window))
 
 (use-package avy
-  :ensure t
   :bind ("C-:" . 'avy-goto-char-timer))
 
 (use-package multiple-cursors
-  :ensure t
   :bind (("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this))
   :config
   (define-key mc/keymap (kbd "<return>") nil))
 
 (use-package expand-region
-  :ensure t
   :bind ("C-=" . er/expand-region))
 
 (use-package yasnippet
-  :ensure t
   :defer t
   :diminish yas-minor-mode
   :config
   (yas-global-mode t))
 
 (use-package key-chord
-  :ensure t
   :config
   (key-chord-mode 1)
   ;; save buffer
@@ -164,7 +154,6 @@
   (key-chord-define-global "xx" 'counsel-M-x))
 
 (use-package which-key
-  :ensure t
   :diminish which-key-mode
   :config
   (which-key-mode)
@@ -172,7 +161,6 @@
   (which-key-setup-side-window-bottom))
 
 (use-package youdao-dictionary
-  :ensure t
   :bind ("C-c y" . youdao-dictionary-search-at-point)
   :init
   (setq url-automatic-caching t)
@@ -188,13 +176,11 @@
         (delete-indentation (natnump n)))))
 
 (use-package wgrep
-  :ensure t
   :defer t
   :bind (("C-x C-q" . wgrep-change-to-wgrep-mode)
          ("C-c C-c" . wgrep-finish-edit)))
 
 (use-package smartparens
-  :ensure t
   :diminish smartparens-mode
   :bind (:map smartparens-mode-map
               ("C-M-a" . sp-beginning-of-sexp)
@@ -218,7 +204,6 @@
                                     (rainbow-delimiters-mode +1))))
 
 (use-package youdao-dictionary
-  :ensure t
   :bind ("C-c y" . youdao-dictionary-search-at-point)
   :init
   (setq url-automatic-caching t)
@@ -234,13 +219,11 @@
         (delete-indentation (natnump n)))))
 
 (use-package wgrep
-  :ensure t
   :defer t
   :bind (("C-x C-q" . wgrep-change-to-wgrep-mode)
          ("C-c C-c" . wgrep-finish-edit)))
 
 (use-package smartparens
-  :ensure t
   :diminish smartparens-mode
   :bind (:map smartparens-mode-map
               ("C-M-a" . sp-beginning-of-sexp)
@@ -264,14 +247,12 @@
                                     (rainbow-delimiters-mode +1))))
 
 (use-package lispy
-  :ensure t
   :diminish lispy-mode
   :config
   (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
   (add-hook 'clojure-mode-hook (lambda () (lispy-mode 1))))
 
 ;; (use-package cnfonts
-;;   :ensure t
 ;;   :init
 ;;   (cnfonts-enable))
 

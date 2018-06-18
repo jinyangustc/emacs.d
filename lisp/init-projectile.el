@@ -3,7 +3,6 @@
 ;;; Code:
 
 (use-package projectile
-  :ensure t
   :diminish projectile-mode
   :init
   (setq projectile-mode-line nil)

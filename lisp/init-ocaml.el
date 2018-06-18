@@ -3,13 +3,11 @@
 ;;; Code:
 
 (use-package tuareg
-  :ensure t
   :defer t
   :mode (("\\.ml[ily]?$" . tuareg-mode)
          ("\\.topml$" . tuareg-mode)))
 
 (use-package merlin
-  :ensure t
   :defer t
   :init
   (add-hook 'tuareg-mode-hook 'merlin-mode)
@@ -17,13 +15,11 @@
   (setq merlin-error-after-save nil))
 
 (use-package ocp-indent
-  :ensure t
   :defer t
   :init
   (add-hook 'tuareg-mode-hook 'ocp-indent-caml-mode-setup))
 
 (use-package utop
-  :ensure t
   :defer t
   :init
   (add-hook 'tuareg-mode-hook 'utop-minor-mode)
@@ -33,7 +29,6 @@
     (message "Cannot find opam executable.")))
 
 (use-package flycheck-ocaml
-  :ensure t
   :defer t
   :init
   (flycheck-ocaml-setup))

@@ -4,7 +4,6 @@
 
 (use-package auctex
   :defer t
-  :ensure t
   :init
   (require 'reftex)
   (setq reftex-plug-into-AUCTex t)
@@ -23,7 +22,6 @@
 
 (use-package company-auctex
   :requires company
-  :ensure t
   :defer t
   :config
   (company-auctex-init))

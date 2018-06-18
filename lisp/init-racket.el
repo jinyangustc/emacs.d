@@ -3,7 +3,6 @@
 ;;; Code:
 
 (use-package racket-mode
-  :ensure t
   :defer t
   :mode (("\\.rkt\\'" . racket-mode))
   :config

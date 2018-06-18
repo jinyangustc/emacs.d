@@ -3,7 +3,6 @@
 ;;; Code:
 
 (use-package rainbow-mode
-  :ensure t
   :init
   (rainbow-mode 1))
 

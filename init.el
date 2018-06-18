@@ -45,8 +45,8 @@
 (require 'init-javascript)
 
 (use-package ibuffer :bind ("C-x C-b" . ibuffer))
-(use-package rainbow-delimiters :ensure t)
-(use-package esup :ensure t :defer t)
+(use-package rainbow-delimiters)
+(use-package esup :defer t)
 
 (require 'server)
 (unless (server-running-p)
@@ -54,3 +54,4 @@
 
 (provide 'init)
 ;;; init.el ends here
+(put 'narrow-to-region 'disabled nil)

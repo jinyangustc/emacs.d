@@ -3,14 +3,12 @@
 ;;; Code:
 
 (use-package emmet-mode
-  :ensure t
   :init
   (add-hook 'sgml-mode-hook 'emmet-mode)
   (add-hook 'web-mode-hook 'emmet-mode)
   (setq emmet-indentation 2))
 
 (use-package web-mode
-  :ensure t
   :mode (("\\.html?\\'" . web-mode)
          ("\\.jsp\\'" . web-mode))
   :config

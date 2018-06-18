@@ -3,12 +3,10 @@
 ;;; Code:
 
 (use-package magit
-  :ensure t
   :commands magit-status
   :bind ("C-x g" . magit-status))
 
 (use-package diff-hl
-  :ensure t
   :commands (diff-hl-mode diff-hl-dired-mode)
   :config
   (global-diff-hl-mode +1)

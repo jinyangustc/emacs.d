@@ -27,7 +27,6 @@
 (setq column-number-mode t)
 
 (use-package mode-line-bell
-  :ensure t
   :init (mode-line-bell-mode))
 
 ;; fringe width (in pixels)
@@ -37,7 +36,6 @@
 ;; * Font and themes
 ;;
 (use-package default-text-scale
-  :ensure t
   :init
   (add-hook 'after-init-hook 'default-text-scale-mode))
 ;; (when (member "qTriplicate T4c" (font-family-list))
@@ -63,21 +61,13 @@
 
 (setq custom-safe-themes t)
 
-(use-package doom-themes
-  :ensure t)
+(use-package doom-themes)
 
 (setq doom-themes-enable-bold t
       doom-themes-enable-italic t)
 
 (load-theme 'doom-one-light t)
 (doom-themes-visual-bell-config)
-
-;; (use-package gruvbox-theme :ensure t)
-;; (load-theme 'gruvbox-dark-medium)
-
-;; (use-package color-theme-sanityinc-tomorrow :ensure t)
-;; (load-theme 'sanityinc-tomorrow-day)
-
 
 (provide 'init-ui)
 ;;; init-ui.el ends here

@@ -3,7 +3,6 @@
 ;;; Code:
 
 (use-package flyspell
-  :ensure t
   :commands (flyspell-prog-mode flyspell-mode)
   :diminish flyspell-mode
   :init
@@ -22,13 +21,11 @@
   )
 
 (use-package flyspell-correct
-  :ensure t
   :commands (flyspell-correct-word-generic
              flyspell-correct-previous-word-generic)
   :after flyspell)
 
 (use-package flyspell-correct-ivy
-  :ensure t
   :demand t
   :bind (:map flyspell-mode-map
               ("<f8>" . flyspell-correct-next-word-generic)))

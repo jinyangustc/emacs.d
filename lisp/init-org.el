@@ -1,5 +1,4 @@
-(use-package org-download
-  :ensure t)
+(use-package org-download)
 
 (use-package org-plus-contrib
   :ensure tcalendar, abbrev,

@@ -22,7 +22,6 @@
 ;;   (add-hook 'inf-clojure-minor-mode-hook (lambda () (setq completion-at-point-functions nil))))
 
 (use-package cider
-  :ensure t
   :defer t
   :config
   (setq nrepl-log-message t)
