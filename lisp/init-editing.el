@@ -252,6 +252,12 @@
   (add-hook 'emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
   (add-hook 'clojure-mode-hook (lambda () (lispy-mode 1))))
 
+(use-package volatile-highlights
+  :commands volatile-highlights-mode
+  :config
+  (volatile-highlights-mode t)
+  :diminish volatile-highlights-mode)
+
 ;; (use-package cnfonts
 ;;   :init
 ;;   (cnfonts-enable))
