@@ -12,12 +12,12 @@
   :config
   (eshell-git-prompt-use-theme 'robbyrussell))
 
-(add-hook 'eshell-mode-hook
-          (lambda ()
-            (company-mode 0)))
+;; (add-hook 'eshell-mode-hook
+;;           (lambda ()
+;;             (company-mode 0)))
 
-;; esh-autosuggest provides fish shell like autosuggestion from history.
-(use-package esh-autosuggest
-  :hook (eshell-mode . esh-autosuggest-mode))
+;; ;; esh-autosuggest provides fish shell like autosuggestion from history.
+;; (use-package esh-autosuggest
+;;   :hook (eshell-mode . esh-autosuggest-mode))
 
 (provide 'init-eshell)
