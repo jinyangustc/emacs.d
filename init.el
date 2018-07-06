@@ -35,7 +35,7 @@
 (require 'init-compile)
 
 (require 'init-eshell)
-;; (require 'init-org)
+(require 'init-org)
 (require 'init-python)
 (require 'init-clojure)
 (require 'init-rust)
@@ -57,3 +57,4 @@
 (provide 'init)
 ;;; init.el ends here
 (put 'narrow-to-region 'disabled nil)
+(put 'downcase-region 'disabled nil)

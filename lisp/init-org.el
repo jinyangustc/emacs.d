@@ -57,4 +57,13 @@
   (add-to-list 'org-structure-template-alist
                '("eq" "#+BEGIN_EXPORT latex\n\\begin{equation}\n?\n\\end{equation}\n#+END_EXPORT")))
 
+(use-package deft
+  :bind ("<f8>" . deft)
+  :commands (deft)
+  :config
+  (setq deft-directory "~/OneDrive - Jinyang Li/notes"
+        deft-extensions '("md" "org" "txt" "tex")
+        deft-recursive t
+        deft-use-filename-as-title nil))
+
 (provide 'init-org)
