@@ -35,6 +35,7 @@
 (require 'init-compile)
 
 (require 'init-eshell)
+;; (require 'init-org)
 (require 'init-python)
 (require 'init-clojure)
 (require 'init-rust)

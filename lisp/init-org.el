@@ -1,7 +1,7 @@
 (use-package org-download)
 
 (use-package org-plus-contrib
-  :ensure tcalendar, abbrev,
+  ;; :ensure tcalendar, abbrev,
   :mode ("\\.org\\'" . org-mode)
   :bind (("C-c l" . org-store-link)
          ("C-c a" . org-agenda)
@@ -39,8 +39,8 @@
   (setq org-return-follows-link t)
   (setq org-src-preserve-indentation t)
   (setq org-src-fontify-natively t)
-  (setq org-agenda-files '("~/Onedrive - Jinyang Li/org/"))
-  (setq org-default-notes-file "~/Onedrive - Jinyang Li/org/notes.org")
+  (setq org-agenda-files '("~/git/org/"))
+  (setq org-default-notes-file "~/git/org/notes.org")
   (setq org-capture-templates
         '(("t" "todo" entry (file "")
            "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
