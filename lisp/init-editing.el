@@ -138,21 +138,21 @@
   :config
   (yas-global-mode t))
 
-(use-package key-chord
-  :config
-  (key-chord-mode 1)
-  ;; save buffer
-  (key-chord-define-global "fs" 'save-buffer)
-  ;; go to word
-  (key-chord-define-global "jj" 'avy-goto-char-timer)
-  ;; go to line
-  (key-chord-define-global "jl" 'avy-goto-line)
-  ;; go back to previous buffer
-  (key-chord-define-global "JJ" 'crux-switch-to-previous-buffer)
-  ;;  undo
-  (key-chord-define-global "uu" 'undo-tree-visualize)
-  ;; shortcut for M-x is nice
-  (key-chord-define-global "xx" 'counsel-M-x))
+;; (use-package key-chord
+;;   :config
+;;   (key-chord-mode 1)
+;;   ;; save buffer
+;;   (key-chord-define-global "fs" 'save-buffer)
+;;   ;; go to word
+;;   (key-chord-define-global "jj" 'avy-goto-char-timer)
+;;   ;; go to line
+;;   (key-chord-define-global "jl" 'avy-goto-line)
+;;   ;; go back to previous buffer
+;;   (key-chord-define-global "JJ" 'crux-switch-to-previous-buffer)
+;;   ;;  undo
+;;   (key-chord-define-global "uu" 'undo-tree-visualize)
+;;   ;; shortcut for M-x is nice
+;;   (key-chord-define-global "xx" 'counsel-M-x))
 
 (use-package which-key
   :diminish which-key-mode
