@@ -49,6 +49,12 @@
 (use-package ibuffer :bind ("C-x C-b" . ibuffer))
 (use-package rainbow-delimiters)
 (use-package esup :defer t)
+(use-package helpful
+  :bind
+  (("C-h f" . helpful-callable)
+   ("C-h v" . helpful-variable)
+   ("C-h k" . helpful-key)
+   ("C-c C-d" . helpful-at-point)))
 
 (require 'server)
 (unless (server-running-p)
