@@ -61,13 +61,14 @@
 
 (setq custom-safe-themes t)
 
-(use-package doom-themes)
-
-(setq doom-themes-enable-bold t
+(use-package doom-themes
+  :config
+  (setq doom-themes-enable-bold t
       doom-themes-enable-italic t)
 
-(load-theme 'doom-one-light t)
-(doom-themes-visual-bell-config)
+  (load-theme 'doom-one-light t)
+  (doom-themes-visual-bell-config))
+
 
 (provide 'init-ui)
 ;;; init-ui.el ends here
