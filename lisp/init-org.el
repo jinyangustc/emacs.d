@@ -1,5 +1,7 @@
 (use-package org-download)
 
+(use-package htmlize)
+
 (use-package org-plus-contrib
   ;; :ensure tcalendar, abbrev,
   :mode ("\\.org\\'" . org-mode)
