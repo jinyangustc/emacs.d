@@ -68,4 +68,11 @@
         deft-recursive t
         deft-use-filename-as-title nil))
 
+(use-package org-ref
+  :config
+  (setq reftex-default-bibliography '("~/OneDrive - Jinyang Li/bibliography/references.bib"))
+  (setq org-ref-bibliography-notes "~/OneDrive - Jinyang Li/bibliography/notes.org"
+        org-ref-default-bibliography '("~/OneDrive - Jinyang Li/bibliography/references.bib")
+        org-ref-pdf-directory "~/OneDrive - Jinyang Li/bibliography/pdfs/"))
+
 (provide 'init-org)
