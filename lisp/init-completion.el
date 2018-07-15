@@ -2,10 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;;
-;; * Completion
-;;
-
 (use-package company
   :diminish company-mode
   :init
