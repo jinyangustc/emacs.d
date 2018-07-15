@@ -90,9 +90,9 @@
 ;; warn when opening file bigger than 100MB
 (setq large-file-warning-threshold 100000000)
 
-(use-package phi-search
-  :bind (("C-c s" . phi-search)
-         ("C-c r" . phi-search-backward)))
+;; (use-package phi-search
+;;   :bind (("C-c s" . phi-search)
+;;          ("C-c r" . phi-search-backward)))
 
 (use-package anzu
   :defer t

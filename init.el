@@ -55,6 +55,8 @@
    ("C-h v" . helpful-variable)
    ("C-h k" . helpful-key)
    ("C-c C-d" . helpful-at-point)))
+(use-package deadgrep
+  :bind (("C-c s" . deadgrep)))
 
 (require 'server)
 (unless (server-running-p)
