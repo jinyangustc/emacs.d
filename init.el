@@ -33,6 +33,7 @@
 (require 'init-ivy)
 (require 'init-flyspell)
 (require 'init-compile)
+(require 'init-ledger)
 
 (require 'init-eshell)
 (require 'init-org)
