@@ -62,6 +62,7 @@
 (use-package cc-mode
   :bind
   (("M-." . counsel-gtags-find-definition)
+   ("M-*" . counsel-gtags-find-reference)
    ("M-," . counsel-gtags-go-backward))
   :config
   (counsel-gtags-mode 1))
