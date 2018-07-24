@@ -58,6 +58,13 @@
    ("C-c C-d" . helpful-at-point)))
 (use-package deadgrep
   :bind (("C-c s" . deadgrep)))
+(use-package counsel-gtags)
+(use-package cc-mode
+  :bind
+  (("M-." . counsel-gtags-find-definition)
+   ("M-," . counsel-gtags-go-backward))
+  :config
+  (counsel-gtags-mode 1))
 
 (require 'server)
 (unless (server-running-p)
