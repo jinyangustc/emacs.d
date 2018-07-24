@@ -58,9 +58,13 @@
            "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)))
   (add-to-list 'org-structure-template-alist
                '("eq" "#+BEGIN_EXPORT latex\n\\begin{equation}\n?\n\\end{equation}\n#+END_EXPORT"))
-  (setq-default
-   org-babel-load-lanvguages '((ledger . t)))
-  )
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (latex . t)
+     (python . t)
+     (shell . t)
+     (C . t))))
 
 (use-package deft
   :bind ("<f8>" . deft)
