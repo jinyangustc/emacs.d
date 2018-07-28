@@ -64,7 +64,8 @@
      (latex . t)
      (python . t)
      (shell . t)
-     (C . t))))
+     (C . t)))
+  (setq org-confirm-babel-evaluate nil))
 
 (use-package deft
   :bind ("<f8>" . deft)
