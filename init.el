@@ -64,7 +64,9 @@
   (("M-." . counsel-gtags-find-definition)
    ("M-*" . counsel-gtags-find-reference)
    ("M-," . counsel-gtags-go-backward))
-  :config
+  :init
+  (setq c-default-style "bsd"
+        c-basic-offset 4)
   (counsel-gtags-mode 1))
 
 (require 'server)
