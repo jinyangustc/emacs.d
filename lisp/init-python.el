@@ -4,6 +4,7 @@
 
 (use-package elpy
   :defer t
+  :bind (("M-." . elpy-goto-definition))
   :config
   (elpy-enable))
 
