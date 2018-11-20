@@ -11,9 +11,13 @@
                          user-emacs-directory)))
   (setq package-user-dir versioned-package-dir))
 
-(setq package-archives '(("org" . "http://elpa.emacs-china.org/org/")
-			 ("melpa" . "http://elpa.emacs-china.org/melpa/")
-			 ("gnu" . "http://elpa.emacs-china.org/gnu/")))
+;; (setq package-archives '(("org" . "http://elpa.emacs-china.org/org/")
+;; 			 ("melpa" . "http://elpa.emacs-china.org/melpa/")
+;; 			 ("gnu" . "http://elpa.emacs-china.org/gnu/")))
+
+(setq package-archives '(("org" . "http://orgmode.org/elpa/")
+			 ("melpa" . "https://melpa.org/packages/")
+			 ("gnu" . "https://elpa.gnu.org/packages/")))
 
 (setq package-enable-at-startup nil)
 (package-initialize)
