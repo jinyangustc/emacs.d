@@ -36,7 +36,7 @@
 (require 'init-ledger)
 
 (require 'init-eshell)
-(require 'init-org)
+;; (require 'init-org)
 (require 'init-python)
 (require 'init-clojure)
 (require 'init-rust)
@@ -44,8 +44,8 @@
 (require 'init-r)
 (require 'init-yaml)
 (require 'init-markdown)
-(require 'init-racket)
-(require 'init-javascript)
+;; (require 'init-racket)
+;; (require 'init-javascript)
 
 (use-package ibuffer :bind ("C-x C-b" . ibuffer))
 (use-package rainbow-delimiters)
