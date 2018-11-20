@@ -210,15 +210,6 @@
   (setq url-automatic-caching t)
   (setq youdao-dictionary-search-history-file "~/.emacs.d/.youdao"))
 
-(defun join-lines (n)
-  "Join N lines."
-  (interactive "p")
-    (if (use-region-p)
-      (let ((fill-column (point-max)))
-        (fill-region (region-beginning) (region-end)))
-      (dotimes (_ (abs n))
-        (delete-indentation (natnump n)))))
-
 (use-package wgrep
   :defer t
   :bind (("C-x C-q" . wgrep-change-to-wgrep-mode)
