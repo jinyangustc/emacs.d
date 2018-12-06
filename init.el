@@ -351,6 +351,7 @@ In that case, insert the number."
   (setq company-math-allow-latex-symbols-in-faces t))
 
 (use-package counsel-projectile
+  :bind ("C-c p" . projectile-command-map)
   :config
   (counsel-projectile-mode))
 
