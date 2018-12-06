@@ -96,8 +96,6 @@
 (use-package mode-line-bell
   :init (mode-line-bell-mode))
 
-;; (fringe-mode '(8 . 8))
-
 ;; package to adjust text size
 (use-package default-text-scale
   :init
@@ -105,13 +103,8 @@
 
 ;; color theme
 (setq custom-safe-themes t)
-(use-package doom-themes
-  :config
-  (setq doom-themes-enable-bold t
-      doom-themes-enable-italic t)
-
-  (load-theme 'doom-one-light t)
-  (doom-themes-visual-bell-config))
+(use-package solarized-theme
+  :config (load-theme 'solarized-light))
 
 ;; ==================================================
 ;; Editing
@@ -183,9 +176,6 @@
 (prefer-coding-system 'utf-8)
 (setq delete-by-moving-to-trash t)
 
-(setq global-auto-revert-non-file-buffers t)
-(setq auto-revert-verbose nil)
-
 ;; revert buffers automatically when underlying files are changed
 ;; externally
 (use-package autorevert
@@ -193,12 +183,6 @@
   :init
   (global-auto-revert-mode 1)
   (setq auto-revert-verbose nil))
-
-(use-package abbrev
-  :diminish abbrev-mode
-  :init
-  (setq save-abbrevs nil)
-  (setq-default abbrev-mode t))
 
 ;; warn when opening file bigger than 100MB
 (setq large-file-warning-threshold 100000000)
@@ -230,13 +214,6 @@
 
 (use-package avy
   :bind ("C-:" . 'avy-goto-char-timer))
-
-(use-package multiple-cursors
-  :bind (("C->" . mc/mark-next-like-this)
-         ("C-<" . mc/mark-previous-like-this)
-         ("C-c C-<" . mc/mark-all-like-this))
-  :config
-  (define-key mc/keymap (kbd "<return>") nil))
 
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
@@ -302,34 +279,6 @@
   :init
   (setq url-automatic-caching t)
   (setq youdao-dictionary-search-history-file "~/.emacs.d/.youdao"))
-
-(use-package wgrep
-  :defer t
-  :bind (("C-x C-q" . wgrep-change-to-wgrep-mode)
-         ("C-c C-c" . wgrep-finish-edit)))
-
-(use-package smartparens
-  :diminish smartparens-mode
-  :bind (:map smartparens-mode-map
-              ("C-M-a" . sp-beginning-of-sexp)
-              ("C-M-e" . sp-end-of-sexp)
-              ("C-M-k" . sp-kill-sexp)
-              ("C-k" . sp-kill-hybrid-sexp)
-              ("C-M-w" . sp-copy-sexp))
-  :init
-  (show-smartparens-global-mode +1)
-  :config
-  (use-package smartparens-config)
-  (smartparens-global-mode 1)
-  (sp-local-pair 'latex-mode "\\[" "\\]")
-  (sp-local-pair 'org-mode "\\[" "\\]")
-  (setq sp-based-key-bingdings 'paredit)
-  (setq sp-autoskip-closing-pair 'always)
-  (setq sp-hybrid-kill-entire-symbol nil)
-  (sp-use-paredit-bindings)
-  (add-hook 'emacs-lisp-mode-hook (lambda ()
-                                    (smartparens-strict-mode +1)
-                                    (rainbow-delimiters-mode +1))))
 
 (use-package lispy
   :diminish lispy-mode
@@ -399,7 +348,6 @@ In that case, insert the number."
 (use-package company-math
   :config
   (add-to-list 'company-backends 'company-math-symbols-latex)
-  ;; (add-to-list 'company-backends 'company-math-symbols-unicode)
   (setq company-math-allow-latex-symbols-in-faces t))
 
 (use-package counsel-projectile
