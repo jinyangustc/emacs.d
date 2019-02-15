@@ -47,6 +47,8 @@
 ;; ==================================================
 ;; UI configuration
 ;; ==================================================
+(set-frame-font "Triplicate T4c-14" nil t)
+
 (when *is-a-mac*
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier 'super)
