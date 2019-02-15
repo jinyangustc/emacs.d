@@ -380,7 +380,9 @@ In that case, insert the number."
 (use-package dired
   :bind ("C-x C-j" . dired-jump)
   :config
-  (setq dired-listing-switches "-laGh"))
+  (setq dired-listing-switches "-laGh")
+  (when *is-a-mac*
+    (setq dired-use-ls-dired nil)))
 
 ;; ==================================================
 ;; Projectile
