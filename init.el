@@ -47,6 +47,9 @@
 ;; ==================================================
 ;; UI configuration
 ;; ==================================================
+
+;; To see available fonts, run (message "%s" (font-family-list)) in
+;; the scratch buffer and check the message buffer
 (set-frame-font "Triplicate T4c-14" nil t)
 
 (when *is-a-mac*
