@@ -478,13 +478,13 @@ In that case, insert the number."
 ;; ==================================================
 ;; Python
 ;; ==================================================
-(use-package elpy
-  :defer t
-  :bind (("M-." . elpy-goto-definition))
-  :config
-  (elpy-enable))
+;; (use-package elpy
+;;   :defer t
+;;   :bind (("M-." . elpy-goto-definition))
+;;   :config
+;;   (elpy-enable))
 
-(use-package pyenv-mode :defer t)
+;; (use-package pyenv-mode :defer t)
 
 ;; ==================================================
 ;; Latex
