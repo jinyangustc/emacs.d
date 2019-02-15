@@ -124,6 +124,9 @@
 (setq create-lockfiles nil)
 
 ;; backup and autosave files go into the tmp directory
+(setq backup-by-copying t)
+(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+(setq delete-old-versions t)
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
@@ -159,9 +162,6 @@
   (show-paren-mode 1))
 
 (remove-hook 'minibuffer-setup-hook 'winner-save-unconditionally)
-(setq backup-by-copying t)
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
-(setq delete-old-versions t)
 (prefer-coding-system 'utf-8)
 (setq delete-by-moving-to-trash t)
 
